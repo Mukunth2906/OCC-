@@ -1,11 +1,18 @@
 pipeline {
+triggers {
+        pollSCM('* * * * *')  // polls every minute
+    }
     agent any
 
     stages {
         stage('Hello') {
             steps {
                 echo 'Hello World'
+                checkout scm
             }
         }
     }
+
+    
+
 }
